@@ -9,7 +9,7 @@ export default function Welcome() {
         <Alert variant="success">
             <Alert.Heading>Hey, ben ritrovati amanti del libro!</Alert.Heading>
             <p>
-                Eccoci insieme nella prima libreria on-line di mia creazione. Potrete qui sotto vedere le schede dei libri in vendita:
+                Eccoci insieme nella prima libreria on-line di mia creazione. Potrete qui sotto vedere le schede dei libri in vendita per categorie:
             </p>
         </Alert>
     </>
