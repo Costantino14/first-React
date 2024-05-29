@@ -22,11 +22,11 @@ function App() {
       <MyNav />
       <Container className="my-3">
       <Welcome />
-      <Button className='mx-2' variant='dark' onClick={() => setType('history')}>Storico</Button>
-      <Button className='mx-2' variant='dark' onClick={() => setType('fantasy')}>Fantasia</Button>
-      <Button className='mx-2' variant='dark' onClick={() => setType('horror')}>Horror</Button>
-      <Button className='mx-2' variant='dark' onClick={() => setType('romance')}>Romantico</Button>
-      <Button className='mx-2' variant='dark' onClick={() => setType('scifi')}>scifi</Button>
+      <Button className='m-2' variant='dark' onClick={() => setType('history')}>Storico</Button>
+      <Button className='m-2' variant='dark' onClick={() => setType('fantasy')}>Fantasia</Button>
+      <Button className='m-2' variant='dark' onClick={() => setType('horror')}>Horror</Button>
+      <Button className='m-2' variant='dark' onClick={() => setType('romance')}>Romantico</Button>
+      <Button className='m-2' variant='dark' onClick={() => setType('scifi')}>scifi</Button>
       
       {type === 'history' && <AllTheBooks books={history}/>}
       {type === 'fantasy' && <AllTheBooks books={fantasy}/>}

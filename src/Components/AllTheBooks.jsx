@@ -1,29 +1,45 @@
-import React from 'react'
-import { Card, Col, Row } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Col, Row } from 'react-bootstrap'
+import SingleBook from './SingleBook'
 
 export default function AllTheBooks(props) {
-    console.log(props.books)
-  return (
-    <Row>
 
-        {props.books.map(book => (
+  const [form, setForm] = useState('');
+
+
+  return (
+
+    <>
+    <Row>
+    <form>
+      <div>
+        <label> Cerca per titoli: 
+          <input className='ms-2'
+            type="text"
+            name="name" 
+            value={form} 
+            onChange={(e) => setForm(e.target.value)} 
+          />
+        </label>
+      </div>
+    </form>
+    </Row>
+
+    <Row>
+        {props.books
+        .filter(book => book.title.toLowerCase().includes(form))
+        .map(book => (
             
             <Col className='m-2'>
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={book.img}  style={{ height: '23rem' }} />
-                    <Card.Body  style={{ height: '13rem' }}>
-                        <Card.Title>{book.title}</Card.Title>
-                        <Card.Text>
-                          Prezzo: {book.price}
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
+
+              <SingleBook key={book.assin} book= {book} />
             </Col>
 
             )
         )}
+
         
     </Row>
-
+    </>
   )
-}
+  }
