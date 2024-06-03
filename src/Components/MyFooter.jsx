@@ -8,7 +8,7 @@ function MyFooter() {
             <div className="row">
                 <div className="col-6 col-md-4 mb-3">
                     <h5>Section</h5>
-                    <ul class="nav flex-column">
+                    <ul className="nav flex-column">
                       <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">Home</a></li>
                       <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">Features</a></li>
                       <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">Pricing</a></li>
