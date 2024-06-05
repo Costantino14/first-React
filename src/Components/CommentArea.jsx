@@ -16,12 +16,12 @@ export default function CommentArea({asin}) {
       .then(response => response.json())
       .then(data => setComments(data))
       .catch(error => console.error("Errore nella fetch:", error))
-  }, []);
+  }, [asin]);
 
   return (
     <>
     <CommentList comments= {comments}/> 
-    <AddComment comments= {comments}/>
+    <AddComment asin= {asin} comments= {comments}/>
     </>
   )
 }

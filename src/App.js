@@ -16,10 +16,12 @@ import scifi from './Books/scifi.json';
 
 function App() {
 
+  const [form, setForm] = useState('');
   let [type, setType] = useState('fantasy');
+
   return (
     <>
-      <MyNav />
+      <MyNav form={form} setForm={setForm}/>
       <Container className="my-3">
       <Welcome />
       <Button className='m-2' variant='dark' onClick={() => setType('history')}>Storico</Button>
@@ -28,11 +30,11 @@ function App() {
       <Button className='m-2' variant='dark' onClick={() => setType('romance')}>Romantico</Button>
       <Button className='m-2' variant='dark' onClick={() => setType('scifi')}>scifi</Button>
       
-      {type === 'history' && <AllTheBooks books={history}/>}
-      {type === 'fantasy' && <AllTheBooks books={fantasy}/>}
-      {type === 'horror' && <AllTheBooks books={horror}/>}
-      {type === 'romance' && <AllTheBooks books={romance}/>}
-      {type === 'scifi' && <AllTheBooks books={scifi}/>}
+      {type === 'history' && <AllTheBooks books={history} form={form}/>}
+      {type === 'fantasy' && <AllTheBooks books={fantasy} form={form}/>}
+      {type === 'horror' && <AllTheBooks books={horror} form={form}/>}
+      {type === 'romance' && <AllTheBooks books={romance} form={form}/>}
+      {type === 'scifi' && <AllTheBooks books={scifi} form={form}/>}
       </Container>
       <MyFooter />
     </>

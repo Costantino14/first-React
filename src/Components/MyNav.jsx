@@ -1,6 +1,6 @@
 import { Navbar, Nav, Container } from 'react-bootstrap';
 
-function MyNav() {
+function MyNav({ form , setForm }) {
   return (
     <>
       <Navbar bg="dark" data-bs-theme="dark">
@@ -11,6 +11,17 @@ function MyNav() {
             <Nav.Link href="#">About</Nav.Link>
             <Nav.Link href="#">Browse</Nav.Link>
           </Nav>
+          <form>
+      <div>
+          <input className='ms-2'
+            placeholder='Cerca per titoli:'
+            type="text"
+            name="name" 
+            value={form} 
+            onChange={(e) => setForm(e.target.value)} 
+          />
+      </div>
+    </form>
         </Container>
       </Navbar>      
     </>

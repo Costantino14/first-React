@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 import SingleComment from './SingleComment';
 
-export default function AddComment({comments}) {
+export default function AddComment({asin , comments}) {
 
   const [items, setItems] = useState([]);
 
@@ -13,7 +13,8 @@ export default function AddComment({comments}) {
     const newItem = { 
       comment: inputValue,
       rate: inputRate,
-      elementId: `${comments[0].elementId}`};
+      elementId: asin
+    };
 
 
     // POST all'API per aggiungere il nuovo elemento
@@ -36,7 +37,7 @@ export default function AddComment({comments}) {
 
   return (
     <>
-      <SingleComment comments={items} />
+      <SingleComment comments={items} setComments={setItems}/>
       <Row>
         <Col>
           <Form.Control 
