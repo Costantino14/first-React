@@ -1,9 +1,14 @@
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { useContext } from 'react';
+import { Navbar, Nav, Container, Button } from 'react-bootstrap';
+import { ThemeContext } from '../Modules/Contexts';
 
 function MyNav({ form , setForm }) {
+
+  const [themeCtx, setThemeCtx] = useContext(ThemeContext)
+
   return (
     <>
-      <Navbar bg="dark" data-bs-theme="dark">
+      <Navbar bg={themeCtx} data-bs-theme={themeCtx}>
         <Container>
           <Navbar.Brand href="#">Navbar</Navbar.Brand>
           <Nav className="me-auto">
@@ -11,6 +16,9 @@ function MyNav({ form , setForm }) {
             <Nav.Link href="#">About</Nav.Link>
             <Nav.Link href="#">Browse</Nav.Link>
           </Nav>
+          <Button variant="dark" onClick={() => {
+            themeCtx === "light" ? setThemeCtx('dark') :setThemeCtx('light')
+          }}>Tema</Button>
           <form>
       <div>
           <input className='ms-2'

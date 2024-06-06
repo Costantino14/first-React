@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Form from 'react-bootstrap/Form';
+import { ThemeContext } from '../Modules/Contexts';
 
 function MyFooter() {
+
   return (
     <div className="container">
         <footer className="py-5">
