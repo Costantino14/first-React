@@ -1,3 +1,4 @@
+import '../App.css';
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -19,9 +20,9 @@ export default function SingleComment({comments, setComments}) {
   return (
     <ListGroup className='mb-2' style={{ width: '18rem'}} >
       {comments.map(comment => 
-      <ListGroup.Item>{comment.comment}   Voto:{comment.rate}
-       <Button className='ms-3 p-1' variant="danger" onClick={() => deleteComment(comment._id)}>
-        x
+      <ListGroup.Item className='px-3 comments-details'>
+        <p>{comment.comment}   Voto:{comment.rate}</p>
+        <Button className='p-1 cancella' variant="danger" onClick={() => deleteComment(comment._id)}>
       </Button>
       </ListGroup.Item>)}
     </ListGroup>
