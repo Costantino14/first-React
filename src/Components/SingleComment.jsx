@@ -13,7 +13,7 @@ export default function SingleComment({comments, setComments}) {
         Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjNhMDhlOTBiM2IyNTAwMTUxYjU0MjMiLCJpYXQiOjE3MTcyMzE1MDYsImV4cCI6MTcxODQ0MTEwNn0.cCxiQ6_mCk-VCPkpVkXwQnt7vampB5hHTXY43ZoJRkg',
        } })
        .then(() => setComments(comments.filter((comment) => comment._id !== id)))
-        .catch((error) => console.error("Errore nell'eliminare la todo", error))
+        .catch((error) => console.error("Errore nel cancellare il commento", error))
     };
 
 

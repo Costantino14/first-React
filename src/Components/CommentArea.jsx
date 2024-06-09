@@ -30,12 +30,13 @@ export default function CommentArea({asin}) {
 
   return (
     <>
+    <AddComment asin= {asin} comments= {comments}/>
     {caricamento && <p id="loader">Caricamento...</p>}
     {errorFetch &&  <Alert variant="danger">
           ops...si è verificato un errore!
         </Alert>}
     <CommentList comments= {comments}/> 
-    <AddComment asin= {asin} comments= {comments}/>
+    
     </>
   )
 }

@@ -60,7 +60,7 @@ export default function AddComment({asin , comments}) {
             <option value="4">4</option>
             <option value="5">5</option>
           </Form.Select>
-          <Button className="mt-2" type="submit" onClick={handleAddItem}>Inserisci</Button>
+          <Button className="my-2" type="submit" onClick={handleAddItem}>Inserisci</Button>
         </Col>
       </Row>
     </>
