@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import { ThemeContext } from '../Modules/Contexts';
+import { Link } from 'react-router-dom';
 
 function MyNav({ form , setForm }) {
 
@@ -10,11 +11,10 @@ function MyNav({ form , setForm }) {
     <>
       <Navbar bg={themeCtx} data-bs-theme={themeCtx}>
         <Container>
-          <Navbar.Brand href="#">Navbar</Navbar.Brand>
+          <Navbar.Brand>Epic-Book</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#">Home</Nav.Link>
-            <Nav.Link href="#">About</Nav.Link>
-            <Nav.Link href="#">Browse</Nav.Link>
+            <Link className='nav-link' to="/">Home</Link>
+            
           </Nav>
           <Button variant="dark" onClick={() => {
             themeCtx === "light" ? setThemeCtx('dark') :setThemeCtx('light')

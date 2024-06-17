@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 import SingleComment from './SingleComment';
 
-export default function AddComment({asin , comments}) {
+export default function AddComment({asin , add, setAdd}) {
 
   const [items, setItems] = useState([]);
 
   const [inputValue, setInputValue] = useState("");
   const [inputRate, setInputRate] = useState();
 
-  const handleAddItem = () => {
+  const handleAddItem = (e) => {
     const newItem = { 
       comment: inputValue,
       rate: inputRate,
@@ -21,27 +21,29 @@ export default function AddComment({asin , comments}) {
     fetch("https://striveschool-api.herokuapp.com/api/comments", {
       method: "POST",
       headers: {
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjNhMDhlOTBiM2IyNTAwMTUxYjU0MjMiLCJpYXQiOjE3MTcyMzE1MDYsImV4cCI6MTcxODQ0MTEwNn0.cCxiQ6_mCk-VCPkpVkXwQnt7vampB5hHTXY43ZoJRkg',
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjNhMDhlOTBiM2IyNTAwMTUxYjU0MjMiLCJpYXQiOjE3MTg2Mzk5NjYsImV4cCI6MTcxOTg0OTU2Nn0.ZIa_sp7up3XB3-Q16a-YeygHvWXuaBTBW_TvHkTd-pM',
      
         "Content-Type": "application/json", // Specifica il tipo di contenuto come JSON
       },
       body: JSON.stringify(newItem), // Convertiamo il nuovo oggetto elemento in una stringa JSON
     })
       .then((response) => response.json()) // Convertiamo la risposta in formato JSON
-      .then((data) => setItems([...items, data])) // Aggiorniamo la lista degli elementi con il nuovo elemento
+      .then((data) => {setAdd(!add)
+        setItems([...items,data])
+      }) // Aggiorniamo la lista degli elementi con il nuovo elemento
 
     // Resettiamo il valore dell'input
     setInputValue("");
-    setInputRate();
   };
 
   return (
     <>
       <SingleComment comments={items} setComments={setItems}/>
+      
       <Row>
         <Col>
           <Form.Control 
-          style={{ width: '18rem'}} 
+          className="mt-2" 
           type="text" 
           placeholder='Lascia un commento...'
           value={inputValue} 
@@ -49,7 +51,6 @@ export default function AddComment({asin , comments}) {
           />
           <Form.Select 
             className="mt-2" 
-            style={{ width: '18rem'}} 
             aria-label="Default select example"
             value={inputRate}
             onChange={(e) => setInputRate(e.target.value)}>

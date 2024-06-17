@@ -1,7 +1,4 @@
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
-.mb-2.card-book {
-}
 
 .px-3.comments-details {
     display: flex;
@@ -10,9 +7,16 @@
     
 }
 
+.p-1.me-1.modifica {
+    cursor: pointer;
+    color: green;
+    width: 20px;
+    height: 20px;
+}
+
 .p-1.cancella {
-    
-    border-radius: 50%;
+    cursor: pointer;
+    color: red;
     width: 20px;
     height: 20px;
 }

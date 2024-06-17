@@ -10,15 +10,14 @@ export default function CommentArea({asin}) {
   const [comments, setComments] = useState([]);
   const [caricamento, setCaricamento] = useState(false);
   const [errorFetch, setErrorFetch] = useState(false);
+  const [add, setAdd] = useState(false);
   const url = 'https://striveschool-api.herokuapp.com/api/books/';
 
   // READ 
   useEffect(() => {
     setCaricamento(true);
     // GET all'API
-    fetch(url+asin+"/comments/", {
-      headers: {Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjNhMDhlOTBiM2IyNTAwMTUxYjU0MjMiLCJpYXQiOjE3MTcyMzE1MDYsImV4cCI6MTcxODQ0MTEwNn0.cCxiQ6_mCk-VCPkpVkXwQnt7vampB5hHTXY43ZoJRkg'}
-      })
+    fetch(url+asin+"/comments/")
       .then(response => response.json())
       .then(data => setComments(data))
       .catch(error => {
@@ -29,14 +28,13 @@ export default function CommentArea({asin}) {
   }, [asin]);
 
   return (
-    <>
-    <AddComment asin= {asin} comments= {comments}/>
-    {caricamento && <p id="loader">Caricamento...</p>}
-    {errorFetch &&  <Alert variant="danger">
-          ops...si è verificato un errore!
-        </Alert>}
-    <CommentList comments= {comments}/> 
-    
-    </>
+    <div data-testid="comment-area">
+      {caricamento && <p id="loader">Caricamento...</p>}
+      {errorFetch &&  <Alert variant="danger">
+                        ops...si è verificato un errore!
+                      </Alert>}
+      <CommentList comments= {comments} setComments={setComments} setAdd={setAdd} add={add}/>
+      <AddComment asin= {asin} setAdd={setAdd} add={add}/>
+    </div>
   )
 }

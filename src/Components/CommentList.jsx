@@ -1,8 +1,8 @@
 import React from 'react'
 import SingleComment from './SingleComment'
 
-export default function CommentList({comments}) {
+export default function CommentList({comments, setComments, add, setAdd}) {
   return (
-    <SingleComment comments={comments}/>
+    <SingleComment comments={comments} setComments={setComments} setAdd={setAdd} add={add}/>
   )
 }
