@@ -27,29 +27,28 @@ function App() {
   return (
     <>
       <ThemeContext.Provider value={[theme, setTheme]}>
-        
-
         <BrowserRouter>
-        <MyNav form={form} setForm={setForm}/>
-        <Container className="my-3">
-          <Welcome setType={setType}/>
-          <Routes>
-              {type === 'history' && <Route index element={<AllTheBooks books={history} form={form}/>} />}
-              {type === 'fantasy' && <Route index element={<AllTheBooks books={fantasy} form={form}/>} />}
-              {type === 'horror' && <Route index element={<AllTheBooks books={horror} form={form}/>} />}
-              {type === 'romance' && <Route index element={<AllTheBooks books={romance} form={form}/>} />}
-              {type === 'scifi' && <Route index element={<AllTheBooks books={scifi} form={form}/>} />}
+          <MyNav form={form} setForm={setForm}/>
+          <Container className="my-3">
+            <Welcome setType={setType}/>
+            <Routes>
+                {/* Route per Il componente AllTheBooks diverso in base al click nei bottoni del componente Welcome */}
+                {type === 'history' && <Route index element={<AllTheBooks books={history} form={form}/>} />}
+                {type === 'fantasy' && <Route index element={<AllTheBooks books={fantasy} form={form}/>} />}
+                {type === 'horror' && <Route index element={<AllTheBooks books={horror} form={form}/>} />}
+                {type === 'romance' && <Route index element={<AllTheBooks books={romance} form={form}/>} />}
+                {type === 'scifi' && <Route index element={<AllTheBooks books={scifi} form={form}/>} />}
 
-              <Route path='/details/:asin' element={<BookDetail type={type}/>} />
-              <Route path='*' element={<NotFound />} />
-          </Routes>
+                <Route path='/details/:asin' element={<BookDetail type={type}/>} /> {/* Route per andare alla pagina dettagli */}
+                <Route path='*' element={<NotFound />} /> {/*Route quando navighi in un percorso non stabilito*/}
+            </Routes>
 
-        </Container>
-        <MyFooter />
+          </Container>
+          <MyFooter />
         </BrowserRouter>
       </ThemeContext.Provider>
     </>
-    );
+  );
 }
 
 export default App;

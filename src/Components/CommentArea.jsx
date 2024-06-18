@@ -7,16 +7,17 @@ import { Alert } from 'react-bootstrap';
 
 export default function CommentArea({asin}) {
 
+  //4 stati divertsi: uno per i commenti, uno per il carimamento del loader, uno per visualizzare l'errore, uno per l'add
   const [comments, setComments] = useState([]);
   const [caricamento, setCaricamento] = useState(false);
   const [errorFetch, setErrorFetch] = useState(false);
   const [add, setAdd] = useState(false);
   const url = 'https://striveschool-api.herokuapp.com/api/books/';
 
-  // READ 
+  // Creo il read con useEffect
   useEffect(() => {
+    //Cambio lo stato di caricamento per farlo visualizzare
     setCaricamento(true);
-    // GET all'API
     fetch(url+asin+"/comments/")
       .then(response => response.json())
       .then(data => setComments(data))
@@ -25,12 +26,12 @@ export default function CommentArea({asin}) {
         setErrorFetch(true)
       })
       .finally(() => setCaricamento(false));
-  }, [asin]);
+  }, [asin]); //Lascio una dipendenza che fa ripartire il read ogni volta che utilizzo un asin diverso
 
   return (
     <div data-testid="comment-area">
-      {caricamento && <p id="loader">Caricamento...</p>}
-      {errorFetch &&  <Alert variant="danger">
+      {caricamento && <p id="loader">Caricamento...</p>} {/*Se caricamento è true visualizza la scritta Caricamento...*/}
+      {errorFetch &&  <Alert variant="danger"> {/*Se errorFetch è true visualizza l'alert di bootstrap*/}
                         ops...si è verificato un errore!
                       </Alert>}
       <CommentList comments= {comments} setComments={setComments} setAdd={setAdd} add={add}/>

@@ -9,18 +9,13 @@ import { Card, Col, ListGroup, Row } from 'react-bootstrap';
 
 export default function BookDetail({type}) {
 
-    console.log(type)
-
     const { asin } = useParams();
     let book={};
     if (type === 'fantasy') {book = fantasy.find( b => b.asin === asin) }
-        else if (type === 'history') {book = history.find( b => b.asin === asin) }
-            else if (type === 'horror') {book = horror.find( b => b.asin === asin) }
-                else if (type === 'romance') {book = romance.find( b => b.asin === asin) }
-                    else if (type === 'scifi') {book = scifi.find( b => b.asin === asin) }
-
-    
-    console.log(book)
+    else if (type === 'history') {book = history.find( b => b.asin === asin) }
+        else if (type === 'horror') {book = horror.find( b => b.asin === asin) }
+            else if (type === 'romance') {book = romance.find( b => b.asin === asin) }
+                else if (type === 'scifi') {book = scifi.find( b => b.asin === asin) }
   return (
     <Row>
         <Col>

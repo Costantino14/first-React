@@ -14,11 +14,12 @@ export default function Welcome({setType}) {
         </p>
       </Alert>
 
+      {/*I bottoni modificano il type che farà cambiare la props di AllTheBook in App.js*/}
       <Button className='m-2' variant='dark' onClick={() => setType('history')}>Storico</Button>
-        <Button className='m-2' variant='dark' onClick={() => setType('fantasy')}>Fantasia</Button>
-        <Button className='m-2' variant='dark' onClick={() => setType('horror')}>Horror</Button>
-        <Button className='m-2' variant='dark' onClick={() => setType('romance')}>Romantico</Button>
-        <Button className='m-2' variant='dark' onClick={() => setType('scifi')}>scifi</Button>
+      <Button className='m-2' variant='dark' onClick={() => setType('fantasy')}>Fantasia</Button>
+      <Button className='m-2' variant='dark' onClick={() => setType('horror')}>Horror</Button>
+      <Button className='m-2' variant='dark' onClick={() => setType('romance')}>Romantico</Button>
+      <Button className='m-2' variant='dark' onClick={() => setType('scifi')}>scifi</Button>
     </>
   )
 }
